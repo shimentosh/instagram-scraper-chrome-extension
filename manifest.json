@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram Scraper",
+  "version": "1.0",
+  "description": "Scrape Instagram data directly from your browser.",
+  "permissions": ["sidePanel", "storage", "downloads", "tabs"],
+  "host_permissions": ["*://*.instagram.com/*"],
+  "action": { "default_icon": "icons/logo.png" },
+  "background": { "service_worker": "background.js" },
+  "side_panel": { "default_path": "popup.html" },
+  "content_scripts": [
+    {
+      "matches": ["*://*.instagram.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
